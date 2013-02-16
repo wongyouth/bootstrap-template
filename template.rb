@@ -1,5 +1,7 @@
 def template_file path
-  file path, open(File.expand_path("../templates/#{path}", __FILE__)).read
+  template_path = File.expand_path("../templates/#{path}", __FILE__)
+  template_path = template_path.scan(/https:.*/).first if template_path =~ /https:/
+  file path, open(template_path).read
 end
 
 # template.rb
