@@ -53,6 +53,9 @@ generate('cancan:ability')
 
 generate('kaminari:config')
 generate('kaminari:views', 'bootstrap -e haml')
+run 'gem install haml2slim'
+run "for i in `find app/views/kaminari -name '*.haml'` ; do haml2slim $i ${i%haml}slim ; done"
+run "for i in `find app/views/kaminari -name '*.haml'` ; do rm $i ; done"
 
 generate('bootstrap:install', 'less')
 #generate('bootstrap:layout', 'application fixed')
