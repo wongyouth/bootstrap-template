@@ -92,7 +92,7 @@ template_file 'app/views/layouts/application.html.slim'
 
 generate(:controller, "home index")
 route "root :to => 'home#index'"
-rake("db:migrate")
+#rake("db:migrate")
 
 git :init
 git :add => "."
