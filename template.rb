@@ -74,13 +74,20 @@ CODE
 
 run 'rm -rf app/views/layouts/application.html.erb' # use generated slim version instead
 run "rm -rf public/index.html"
+run "rm -rf app/assets/images/rails.png"
 
 environment do
 <<-CODE
-    config.time_zone = 'Beijing'
+config.time_zone = 'Beijing'
     config.i18n.default_locale = 'zh-CN'
     config.generators do |g|
       g.fixture_replacement :factory_girl
+      g.test_framework :rspec, :fixture => true
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+      g.helper_specs false
+      g.view_specs false
     end
 CODE
 end
