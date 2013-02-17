@@ -26,3 +26,10 @@
     rails new blog
     cd blog
     rake rails:template LOCATION=https://raw.github.com/wongyouth/bootstrap-template/master/template.rb
+
+or
+
+    rails new blog -m https://raw.github.com/wongyouth/bootstrap-template/master/template.rb
+
+## References
+    http://edgeguides.rubyonrails.org/rails_application_templates.html
