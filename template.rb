@@ -50,6 +50,11 @@ run 'bundle install'
 generate('devise:install')
 generate('devise', 'user')
 generate('cancan:ability')
+generate('devise:views')
+run "gem install hpricot ruby_parser"
+run "for i in `find app/views/devise -name '*.erb'` ; do html2haml -e $i ${i%erb}haml ; rm $i ; done"
+run "for i in `find app/views/devise -name '*.haml'` ; do haml2slim $i ${i%haml}slim ; done"
+run "for i in `find app/views/devise -name '*.haml'` ; do rm $i ; done"
 
 generate('kaminari:config')
 generate('kaminari:views', 'bootstrap -e haml')
