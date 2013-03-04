@@ -51,13 +51,14 @@ generate('devise:install')
 generate('devise', 'user')
 generate('cancan:ability')
 generate('devise:views')
-run "gem install hpricot ruby_parser haml2slim"
-run "for i in `find app/views/devise -name '*.erb'` ; do html2haml -e $i ${i%erb}haml ; rm $i ; done"
-run "for i in `find app/views/devise -name '*.haml'` ; do haml2slim $i ${i%haml}slim ; rm $i ; done"
+#run "gem install hpricot ruby_parser haml2slim"
+#run "for i in `find app/views/devise -name '*.erb'` ; do html2haml -e $i ${i%erb}haml ; rm $i ; done"
+#run "for i in `find app/views/devise -name '*.haml'` ; do haml2slim $i ${i%haml}slim ; rm $i ; done"
 
 generate('kaminari:config')
-generate('kaminari:views', 'bootstrap -e haml')
-run "for i in `find app/views/kaminari -name '*.haml'` ; do haml2slim $i ${i%haml}slim ; rm $i ; done"
+generate('kaminari:views', 'bootstrap')
+#generate('kaminari:views', 'bootstrap -e haml')
+#run "for i in `find app/views/kaminari -name '*.haml'` ; do haml2slim $i ${i%haml}slim ; rm $i ; done"
 
 generate('bootstrap:install', 'less')
 #generate('bootstrap:layout', 'application fixed')
