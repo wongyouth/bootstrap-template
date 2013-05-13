@@ -22,6 +22,7 @@ gem_group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'autotest'
 end
 
 gem_group :assets do
