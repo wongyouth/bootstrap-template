@@ -9,10 +9,11 @@ end
 
 generate('devise:install')
 generate('devise', 'user')
+generate('devise:views:locale', 'zh-CN')
 generate('cancan:ability')
 
 generate('kaminari:config')
-generate('kaminari:views', 'bootstrap -e haml')
+generate('kaminari:views', 'bootstrap -e erb')
 
 generate('bootstrap:install', 'less')
 #generate('bootstrap:layout', 'application fixed')
@@ -23,14 +24,19 @@ generate('simple_form:install', '--bootstrap')
 generate('client_side_validations:install')
 generate('rspec:install')
 
+generate('ckeditor:install', '--orm=active_record --backend=carrierwave')
+
 append_file 'app/assets/javascripts/application.js', <<-CODE, verbose: false
 //= require rails.validations
 //= require rails.validations.simple_form
+//= require ckeditor/init
 CODE
 
 append_file 'app/assets/stylesheets/application.css', <<-CODE, verbose: false
 body {padding-top: 60px;}
 CODE
+
+run 'guard init livereload'
 
 run 'rm -rf app/views/layouts/application.html.erb' # use generated slim version instead
 run "rm -rf public/index.html"
@@ -43,6 +49,14 @@ environment do
       g.fixture_replacement :factory_girl
     end
 CODE
+end
+
+environment env: 'development' do
+  config.middleware.insert_before(
+    ActionDispatch::Static, Rack::LiveReload,
+    :min_delay => 500,
+    :max_delay => 10000
+  )
 end
 
 template_file 'app/views/common/_menu.html.slim'

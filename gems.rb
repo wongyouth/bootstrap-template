@@ -17,8 +17,19 @@ gem 'client_side_validations-simple_form'
 
 gem 'rails-i18n'
 gem 'devise-i18n'
+# use gem > 0.2.6 for zh-CN translation
+gem 'devise-i18n-views', git: 'https://github.com/mcasimir/devise-i18n-views.git'
+
+gem 'ckeditor'
+gem "carrierwave"
+gem "mini_magick"
+
+gem 'guard-livereload'
+gem 'rack-livereload'
 
 gem_group :development, :test do
+  gem 'debugger'
+  gem 'awesome_print'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
