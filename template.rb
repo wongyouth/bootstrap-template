@@ -63,6 +63,7 @@ template_file 'app/views/common/_menu.html.slim'
 template_file 'app/views/common/_search_form.html.slim'
 template_file 'app/views/common/_user_nav.html.slim'
 template_file 'app/views/layouts/application.html.slim'
+template_file 'app/assets/javascripts/ckeditor/config.js'
 
 generate(:controller, "home index")
 route "root :to => 'home#index'"
