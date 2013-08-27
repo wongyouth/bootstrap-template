@@ -1,13 +1,11 @@
-ul.nav.pills.pull-right
+ul.nav.navbar-nav.navbar-right
   - if current_user
     li.dropdown
-      =link_to '/account', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+      = link_to '/profile', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
         = current_user.email
-        span.caret
-
-      ul.dropdown-menu
-        li= link_to 'Logout', destroy_user_session_path, method: :delete
-
+        b.caret
+    li = link_to "Sign out", destroy_user_session_path
   - else
-    li= link_to 'Sign Up', new_user_registration_path
-    li= link_to 'Login', new_user_session_path
+    li = link_to "Sign up", new_user_registration_path
+    li = link_to "Sign in", new_user_session_path
+

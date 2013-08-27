@@ -1,18 +1,21 @@
-.navbar.navbar-fixed-top
-  .navbar-inner
-    .container-fluid
-      a.btn.btn-navbar data-target=".nav-collapse" data-toggle="collapse"
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
+header#header
+  nav.navbar.navbar-default role="navigation"
+    .container
+      .navbar-header
+        button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+          span.sr-only Menu
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand href="/"
+          /img.logo-wordmark src=image_path('logo-wordmark.png')
+          b
+            = t('site_name', default: 'Site')
+            | &nbsp;
 
-      = render 'common/user_nav'
+          span.alpha alpha
 
-      = link_to t('site_name', default: 'site'), '#', class: 'brand'
-      = render 'common/search_form'
-      .container-fluid.nav-collapse
-        ul.nav
-          li= link_to "Link 1", "/path1"
-          li= link_to "Link 2", "/path2"
-          li= link_to "Link 3", "/path3"
-
+      .navbar-collapse.collapse
+        = render 'common/nav_links'
+        = render 'common/search_form'
+        = render 'common/user_nav'

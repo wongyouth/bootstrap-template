@@ -1,0 +1,73 @@
+.sticky_footer;
+
+#content {
+  padding: @line-height-computed 0;
+  min-height: 20 * @line-height-computed;
+}
+
+#footer {
+  border-top: 1px solid @border-color;
+  padding: 2 * @line-height-computed 0;
+  background: @gray-background;
+  li {
+    padding: 0 4px;
+  }
+}
+
+#flash .alert {
+  margin-top: @line-height-computed / 2;
+}
+
+@media (max-width: @screen-sm) {
+  #footer {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .navbar-static-top .container {
+    width: auto;
+  }
+}
+a
+.signed-out {
+  #header {
+    border-bottom: 1px solid @border-color;
+    padding: (0.5 * @font-size-base) 0;
+  }
+  .navbar-inner {
+    .box-shadow(none);
+    border-width: 0;
+    background: @body-bg;
+  }
+}
+
+.l-event {
+  #main {
+    background: @gray-background;
+  }
+  #content {
+    padding: 4 * @font-size-base;
+  }
+  #content > .container {
+    background: @body-bg;
+    padding: @font-size-base;
+    border: 1px solid @border-color;
+  }
+  #footer {
+    background: @body-bg;
+  }
+}
+
+#mapPreview {
+  overflow: hidden;
+  margin: 0;
+  height: 350px;
+}
+
+#baiduMap {
+  height: 320px;
+  width: 100%;
+}
+
+
