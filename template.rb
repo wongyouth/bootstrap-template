@@ -53,19 +53,27 @@ environment do
 <<-CODE
     config.time_zone = 'Beijing'
     config.i18n.default_locale = 'zh-CN'
-    config.generators do |g|
-      g.fixture_replacement :factory_girl
-    end
     config.ember.variant = :production
 CODE
 end
 
 environment env: 'development' do
+<<-CODE
   config.middleware.insert_before(
     ActionDispatch::Static, Rack::LiveReload,
     :min_delay => 500,
     :max_delay => 10000
   )
+  config.ember.variant = :development
+CODE
+end
+
+environment env: 'test' do
+<<-CODE
+  config.generators do |g|
+    g.fixture_replacement :factory_girl
+  end
+CODE
 end
 
 template_file 'app/helpers/bootstrap_flash_helper.rb'
