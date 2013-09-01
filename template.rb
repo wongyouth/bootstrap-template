@@ -88,6 +88,6 @@ generate(:controller, "home index")
 route "root :to => 'home#index'"
 rake("db:migrate")
 
-git :init
-git :add => "."
-git :commit => "-a -m 'Initial commit'"
+#git :init
+#git :add => "."
+#git :commit => "-a -m 'Initial commit'"
