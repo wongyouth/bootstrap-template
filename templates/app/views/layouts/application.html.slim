@@ -20,6 +20,7 @@ html lang="zh"
     link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72"
     link href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed"
     /link href="favicon.ico" rel="shortcut icon"
+    = javascript_include_tag "application"
 
   body
     = render 'common/menu'
@@ -48,5 +49,4 @@ html lang="zh"
               li #{link_to(t('layout.site_name', default: 'Site'), root_url)} &copy; #{Date.current.year} #{t('layout.copyright')}
               li = link_to t('layout.contact_us'), "mailto:wongyouth@gmail.com"
 
-    = javascript_include_tag "application"
     = yield :body_bottom
