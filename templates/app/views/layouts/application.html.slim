@@ -42,7 +42,7 @@ html lang="zh"
           .col-xs-8
             p = t('layout.sponsors.title')
             = link_to '#' do
-              = image_tag image_path('favicon.ico'), height: '32', width: '32'
+              = image_tag '/favicon.ico', height: '32', width: '32'
           .col-xs-4
             ul
               li #{link_to(t('layout.site_name', default: 'Site'), root_url)} &copy; #{Date.current.year} #{t('layout.copyright')}

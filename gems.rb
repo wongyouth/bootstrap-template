@@ -51,7 +51,7 @@ gem_group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'turbo-sprockets-rails3'
+  #gem 'turbo-sprockets-rails3' # conflict with emblem-rails
   gem 'thin'
   gem 'pry-rails'
   gem 'pry-nav'
