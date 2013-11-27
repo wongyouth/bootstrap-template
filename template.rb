@@ -20,14 +20,14 @@ generate('kaminari:views', 'bootstrap -e slim')
 #generate('bootstrap:layout', 'application fixed')
 #generate('bootstrap:layout', 'application fluid')
 #generate('bootstrap:themed Posts')
-template_file 'app/assets/stylesheets/0-variables.less'
-template_file 'app/assets/stylesheets/1-base.less'
-template_file 'app/assets/stylesheets/2-layout.less'
-template_file 'app/assets/stylesheets/3-states.less'
-template_file 'app/assets/stylesheets/4-themes.less'
-template_file 'app/assets/stylesheets/application.less'
-template_file 'app/assets/stylesheets/bootstrap-custom.less'
-template_file 'app/assets/stylesheets/mixins/sticky-footer.less'
+template_file 'app/assets/stylesheets/_0-variables.css.scss'
+template_file 'app/assets/stylesheets/_1-base.css.scss'
+template_file 'app/assets/stylesheets/_2-layout.css.scss'
+template_file 'app/assets/stylesheets/_3-states.css.scss'
+template_file 'app/assets/stylesheets/_4-themes.css.scss'
+template_file 'app/assets/stylesheets/application.css.scss'
+template_file 'app/assets/stylesheets/bootstrap-custom.css.scss'
+template_file 'app/assets/stylesheets/mixins/_sticky-footer.css.scss'
 
 generate('simple_form:install', '--bootstrap')
 #generate('client_side_validations:install')
@@ -38,9 +38,9 @@ generate('ember:bootstrap')
 #generate('ckeditor:install', '--orm=active_record --backend=carrierwave')
 
 append_file 'app/assets/javascripts/application.js', <<-CODE, verbose: false
+//= require bootstrap
 //=# require rails.validations
 //=# require rails.validations.simple_form
-//=# require ckeditor/init
 CODE
 
 append_file 'app/assets/stylesheets/application.css', <<-CODE, verbose: false
@@ -98,9 +98,7 @@ generate(:controller, "home index")
 route "root :to => 'home#index'"
 rake("db:migrate")
 
-append_file 'app/assets/javascripts/templates/application.js.emblem', <<-CODE, verbose: false
-h1 hello
-CODE
+file 'app/assets/javascripts/templates/application.js.emblem', 'h1 hello'
 
 run 'rm app/assets/stylesheets/application.css'
 

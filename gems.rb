@@ -1,7 +1,7 @@
 gem 'slim-rails'
 #gem 'nokogiri'
 gem 'kaminari'
-gem 'less-rails-bootstrap'
+gem 'bootstrap-sass'
 gem 'settingslogic'
 gem 'therubyracer'
 
@@ -18,7 +18,7 @@ gem 'simple_form', '~> 3.0.0'
 gem 'rails-i18n'
 gem 'devise-i18n'
 # use gem > 0.2.5 for zh-CN translation
-gem 'devise-i18n-views', git: 'https://github.com/mcasimir/devise-i18n-views.git'
+gem 'devise-i18n-views'
 
 #gem 'ckeditor'
 gem "carrierwave"
@@ -28,7 +28,7 @@ gem_group :development, :test do
   gem 'debugger'
   gem 'awesome_print'
   gem 'rspec-rails'
-  gem 'jasmine-rails', github: 'searls/jasmine-rails'
+  gem 'jasmine-rails'
   gem 'factory_girl_rails'
   gem 'autotest'
   gem 'zeus'

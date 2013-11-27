@@ -1,9 +1,9 @@
 /* Site settings */
 
-@gray-background: hsl(0, 0%, 97%);
-@border-color: hsl(0, 0, 88);
+$gray-background: hsl(0, 0%, 97%);
+$border-color: hsl(0, 0, 88);
 
-@hr-border: hsl(0, 0%, 82%);
+$hr-border: hsl(0, 0%, 82%);
 
 /* Bootstrap overrides */
 // always reuse these variables http://git.io/7LmzGA
