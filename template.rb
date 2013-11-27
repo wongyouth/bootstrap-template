@@ -13,7 +13,7 @@ generate('devise:views:locale', 'zh-CN')
 generate('cancan:ability')
 
 generate('kaminari:config')
-generate('kaminari:views', 'bootstrap -e erb')
+generate('kaminari:views', 'bootstrap -e slim')
 
 # twitter bootstrap 3
 #generate('bootstrap:install', 'less')
@@ -35,12 +35,12 @@ generate('rspec:install')
 
 generate('ember:bootstrap')
 
-generate('ckeditor:install', '--orm=active_record --backend=carrierwave')
+#generate('ckeditor:install', '--orm=active_record --backend=carrierwave')
 
 append_file 'app/assets/javascripts/application.js', <<-CODE, verbose: false
 //=# require rails.validations
 //=# require rails.validations.simple_form
-//= require ckeditor/init
+//=# require ckeditor/init
 CODE
 
 append_file 'app/assets/stylesheets/application.css', <<-CODE, verbose: false
@@ -66,11 +66,11 @@ end
 
 application nil, env: 'development' do
 <<-CODE
-config.middleware.insert_before(
-    ActionDispatch::Static, Rack::LiveReload,
-    :min_delay => 500,
-    :max_delay => 10000
-  )
+#config.middleware.insert_before(
+#    ActionDispatch::Static, Rack::LiveReload,
+#    :min_delay => 500,
+#    :max_delay => 10000
+#  )
   config.ember.variant = :development
 CODE
 end
@@ -92,11 +92,15 @@ template_file 'app/views/common/_user_nav.html.slim'
 run 'rm -rf app/views/layouts/application.html.erb' # use generated slim version instead
 template_file 'app/views/layouts/application.html.slim'
 
-template_file 'app/assets/javascripts/ckeditor/config.js'
+#template_file 'app/assets/javascripts/ckeditor/config.js'
 
 generate(:controller, "home index")
 route "root :to => 'home#index'"
 rake("db:migrate")
+
+append_file 'app/assets/javascripts/templates/application.js.emblem', <<-CODE, verbose: false
+h1 hello
+CODE
 
 run 'rm app/assets/stylesheets/application.css'
 
