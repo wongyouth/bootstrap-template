@@ -11,7 +11,7 @@ gem 'ember-rails'
 gem 'devise'
 gem 'cancan'
 
-gem 'simple_form', '~> 3.0.0.rc'
+gem 'simple_form', '~> 3.0.0'
 #gem 'client_side_validations'
 #gem 'client_side_validations-simple_form'
 
